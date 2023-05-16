@@ -1,6 +1,7 @@
 package org.spring.main;
 
 import org.spring.beans.Vehicle;
+import org.spring.config.ComponentConfig;
 import org.spring.config.ProjectConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -13,16 +14,22 @@ public class Example2 {
         * So you need to throw what bean are you pertaining to.
         * */
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
+        var context2 = new AnnotationConfigApplicationContext(ComponentConfig.class);
 
         var veh = context.getBean("audiVehicle", Vehicle.class);
         var veh2 = context.getBean("hondaVehicle", Vehicle.class);
         var veh3 = context.getBean("ferrariVehicle", Vehicle.class);
         var veh4 = context.getBean(Vehicle.class);
 
+        var varFromComponentScan = context2.getBean(Vehicle.class);
+
+        varFromComponentScan.setName("Component Scan Vehicle");
+
         System.out.println("Vehicle name from Spring Context is: " + veh.getName());
         System.out.println("Vehicle name from Spring Context is: " + veh2.getName());
         System.out.println("Vehicle name from Spring Context is: " + veh3.getName());
         System.out.println("Vehicle name from Spring Context is: " + veh4.getName());
+        System.out.println("Vehicle from component scan name is " + varFromComponentScan.getName());
 
     }
 }

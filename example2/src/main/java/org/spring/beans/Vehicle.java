@@ -1,5 +1,8 @@
 package org.spring.beans;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Vehicle {
 
     public String getName() {
