@@ -17,10 +17,12 @@ public class Example2 {
         var veh = context.getBean("audiVehicle", Vehicle.class);
         var veh2 = context.getBean("hondaVehicle", Vehicle.class);
         var veh3 = context.getBean("ferrariVehicle", Vehicle.class);
+        var veh4 = context.getBean(Vehicle.class);
 
         System.out.println("Vehicle name from Spring Context is: " + veh.getName());
         System.out.println("Vehicle name from Spring Context is: " + veh2.getName());
         System.out.println("Vehicle name from Spring Context is: " + veh3.getName());
+        System.out.println("Vehicle name from Spring Context is: " + veh4.getName());
 
     }
 }

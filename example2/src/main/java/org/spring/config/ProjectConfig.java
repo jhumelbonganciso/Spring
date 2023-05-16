@@ -3,6 +3,7 @@ package org.spring.config;
 import org.spring.beans.Vehicle;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /*
 * Spring @configuration annotation is aprt of the spring core framework.
@@ -35,6 +36,16 @@ public class ProjectConfig {
     Vehicle vehicle3() {
         var veh = new Vehicle();
         veh.setName("Ferrari");
+        return veh;
+    }
+
+    /*The @Primary annotation will make this bean as the primary bean to choose
+    * if there is ambiguity on what bean to choose. it will also avoid the NoUniqueBeanDefinitionException*/
+    @Primary
+    @Bean
+    Vehicle vehiclePrimary() {
+        var veh = new Vehicle();
+        veh.setName("Toyota");
         return veh;
     }
 
